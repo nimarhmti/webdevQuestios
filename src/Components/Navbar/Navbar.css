@@ -1,0 +1,17 @@
+.NavSection {
+  background-color: #fff;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.NavList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.NavItem {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+}
