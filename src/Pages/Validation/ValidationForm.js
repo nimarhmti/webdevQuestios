@@ -5,37 +5,26 @@ function ValidationForm() {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [error, setError] = useState(true);
+  const [age, setAge] = useState();
 
   //
 
   //-----get date function
   const date = new Date();
   let content = <p>تاریخ تولد خود را وارد کنید</p>;
-  let age = {};
+
   // handler function
   const dayInputHandler = (event) => {
     const day = +event.target.value;
-    if (day) {
-      setDay(day);
-    } else {
-      return;
-    }
+    setDay(day);
   };
   const monthInputHandler = (event) => {
     const month = +event.target.value;
-    if (month) {
-      setMonth(month);
-    } else {
-      return;
-    }
+    setMonth(month);
   };
   const yearInputHandler = (event) => {
     const year = +event.target.value;
-    if (year) {
-      setYear(year);
-    } else {
-      return;
-    }
+    setYear(year);
   };
 
   const validationInput = (day, month, year) => {
@@ -45,20 +34,28 @@ function ValidationForm() {
       alert("تاریخ تولد وارد شده نا معتبر است ");
     } else {
       setError(false);
-      age = {
+      return {
         day: Math.abs(date.getDate() - day),
         month: Math.abs(date.getMonth() - month + 1),
         year: Math.abs(date.getFullYear() - year),
       };
-      return;
     }
   };
 
   const onSubmitionHandler = (event) => {
     event.preventDefault();
-    validationInput(day, month, year);
+    const age = validationInput(day, month, year);
+    setAge(age);
   };
-  console.log(age);
+  if (age) {
+    content = (
+      <p>
+        سن شما:
+        {age.day}روز {age.month} ماه {age.year}سال
+      </p>
+    );
+  }
+
   return (
     <div className="validationFormSection">
       <form className="form" onSubmit={onSubmitionHandler}>

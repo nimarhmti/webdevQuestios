@@ -29,7 +29,7 @@ export default function Navbar() {
           <NavLink to="/socialmedia" className="NavItem">
             <li>شبکه اجتماعی</li>
           </NavLink>
-          <NavLink to="/Bank loans" className="NavItem">
+          <NavLink to="/Bankloans" className="NavItem">
             <li>وام بانکی</li>
           </NavLink>
         </ul>
