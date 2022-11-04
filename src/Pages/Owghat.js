@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 
 function Owghat() {
   const [owghat, setowghat] = useState({});
-  let today = new Date().toLocaleDateString("fa-IR");
+  let today = new Date();
+  console.log(today.getUTCDate());
 
   //   useEffect(() => {
   //     const response = async () => {
@@ -18,7 +19,6 @@ function Owghat() {
   //     response().catch((err) => console.log(err.message));
   //   }, []);
 
-  console.log(today);
   return <div>Owghat</div>;
 }
 
